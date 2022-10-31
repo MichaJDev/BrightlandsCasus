@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "64fRC41lR5Ic+XO2XdnFPHrkXcXXrB1YGLa9xxXcSlK/6LC038DHkYCew7kbVMD6mzK0FEEHds0ldFm1nggQzw==",
+  "dgSpecHash": "psSl07UGBGo6stbGZ3a6HYFa3Y+tqCZCdB7vctU3nui2S7x9yT4VhILXxEThMb0r4pM3gDscKM2RNT7v2u3eiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\xflak\\source\\repos\\BrightLandsWayfinding\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
+  "projectFilePath": "D:\\Programming\\HBO ICT\\zSolutions\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xflak\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\xflak\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
