@@ -14,6 +14,9 @@ namespace BrightLandsWayfinding.Models.Companies
         [Required(ErrorMessage = "Description can't be empty")]
         public string Description { get; set; }
         public string? ProfileImage { get; set; }
+        public string? TelephoneNumber { get; set; }
+        public string? EmailAddress { get; set; }
+        public string? WebsiteURL { get; set; }
         public Office? Office { get; set; }
     }
 }

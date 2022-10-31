@@ -5,6 +5,7 @@
         VISITOR,
         INVITED,
         WORKER,
+        OWNER,
         ADMIN
 
     }
