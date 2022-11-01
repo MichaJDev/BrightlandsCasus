@@ -1,4 +1,5 @@
 ﻿using BrightLandsWayfinding.Models.Offices;
+using BrightLandsWayfinding.Models.Users;
 using System.ComponentModel.DataAnnotations;
 
 namespace BrightLandsWayfinding.Models.Companies
@@ -17,6 +18,6 @@ namespace BrightLandsWayfinding.Models.Companies
         public string? TelephoneNumber { get; set; }
         public string? EmailAddress { get; set; }
         public string? WebsiteURL { get; set; }
-        public Office? Office { get; set; }
+        public List<User>? Employees { get; set; }
     }
 }

@@ -7,8 +7,8 @@ namespace BrightLandsWayfinding.Models.Stories
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public List<Office> Offices { get; set; }
-        public Location Location { get; set; }
+        public List<Office>? Offices { get; set; }
+        public Location? Location { get; set; }
 
     }
 }

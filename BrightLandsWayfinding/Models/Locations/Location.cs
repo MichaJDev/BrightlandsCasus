@@ -11,6 +11,6 @@ namespace BrightLandsWayfinding.Models.Locations
         public string City { get; set; }
         public string Region { get; set; }
         public string Country { get; set; }
-        public List<Story> Stories { get; set; }
+        public List<Story>? Stories { get; set; }
     }
 }

@@ -30,6 +30,6 @@ namespace BrightLandsWayfinding.Models.Users
         [Required(ErrorMessage = "Description can't be empty")]
         [StringLength(400)]
         public string Description { get; set; }
-        public Company? company;
+        public Company? Company { get; set; }
     }
 }
