@@ -17,8 +17,10 @@ namespace BrightLandsWayfinding.Data
 
         public DbSet<Company> Companies { get; set; }
         public DbSet<Location> Locations { get; set; }
-        public DbSet<Office> Offices { get; set; } 
+        public DbSet<Office> Offices { get; set; }
         public DbSet<Story> Stories { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Step> Step { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,8 +35,6 @@ namespace BrightLandsWayfinding.Data
                 .WithOne(e => e.Company);
         }
 
-        public DbSet<BrightLandsWayfinding.Models.Users.User> User { get; set; }
 
-        public DbSet<BrightLandsWayfinding.Models.Steps.Step> Step { get; set; }
     }
 }
