@@ -1,4 +1,5 @@
 ﻿
+using BrightLandsWayfinding.Models.Rooms;
 using BrightLandsWayfinding.Models.Users;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,5 +20,6 @@ namespace BrightLandsWayfinding.Models.Companies
         public string? EmailAddress { get; set; }
         public string? WebsiteURL { get; set; }
         public List<User>? Employees { get; set; }
+        public Room? Room { get; set; }
     }
 }

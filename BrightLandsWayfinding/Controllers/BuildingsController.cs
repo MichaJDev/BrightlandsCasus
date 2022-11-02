@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
-using BrightLandsWayfinding.Models.Locations;
+using BrightLandsWayfinding.Models.Buildings;
 
 namespace BrightLandsWayfinding.Controllers
 {

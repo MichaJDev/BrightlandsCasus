@@ -1,4 +1,4 @@
-﻿using BrightLandsWayfinding.Models.Locations;
+﻿using BrightLandsWayfinding.Models.Buildings;
 using BrightLandsWayfinding.Models.Rooms;
 
 namespace BrightLandsWayfinding.Models.Stories

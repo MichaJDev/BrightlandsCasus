@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Rooms;
+using BrightLandsWayfinding.Models.Buildings;
+using BrightLandsWayfinding.Models.Stories;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -22,7 +24,14 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Rooms.ToListAsync());
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Story s in _context.Stories)
+            {
+                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
+            }
+
+            ViewBag.Stories = selectList;
+            return View(await _context.Rooms.Include(s => s.Story).ToListAsync());
         }
 
         // GET: Rooms/Details/5
@@ -54,7 +63,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Type")] Room room)
+        public async Task<IActionResult> Create([Bind("ID,Name,Type,Story")] Room room)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +71,13 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Story s in _context.Stories)
+            {
+                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
+            }
+
+            ViewBag.Stories = selectList;
             return View(room);
         }
 
@@ -78,6 +94,13 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Story s in _context.Stories)
+            {
+                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
+            }
+
+            ViewBag.Stories = selectList;
             return View(room);
         }
 
@@ -113,6 +136,13 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Story s in _context.Stories)
+            {
+                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
+            }
+
+            ViewBag.Stories = selectList;
             return View(room);
         }
 

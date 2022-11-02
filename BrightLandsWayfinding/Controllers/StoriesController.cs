@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Stories;
+using BrightLandsWayfinding.Models.Buildings;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -22,7 +23,15 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Stories
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Stories.ToListAsync());
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach(Building b in _context.Buildings)
+            {
+                selectList.Add(new SelectListItem { Text = b.Name, Value = b.ID.ToString() });
+            }
+
+            ViewBag.Buildings = selectList;
+            return View(await _context.Stories.Include(s => s.Building).ToListAsync());
+
         }
 
         // GET: Stories/Details/5
@@ -78,6 +87,13 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Building b in _context.Buildings)
+            {
+                selectList.Add(new SelectListItem { Text = b.Name, Value = b.ID.ToString() });
+            }
+
+            ViewBag.Buildings = selectList;
             return View(story);
         }
 
@@ -113,6 +129,13 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Building b in _context.Buildings)
+            {
+                selectList.Add(new SelectListItem { Text = b.Name, Value = b.ID.ToString() });
+            }
+
+            ViewBag.Buildings = selectList;
             return View(story);
         }
 
@@ -148,14 +171,14 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Stories.Remove(story);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool StoryExists(int id)
         {
-          return _context.Stories.Any(e => e.ID == id);
+            return _context.Stories.Any(e => e.ID == id);
         }
     }
 }

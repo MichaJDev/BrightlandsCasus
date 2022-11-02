@@ -1,6 +1,6 @@
 ﻿using BrightLandsWayfinding.Models.Stories;
 
-namespace BrightLandsWayfinding.Models.Locations
+namespace BrightLandsWayfinding.Models.Buildings
 {
     public class Building
     {

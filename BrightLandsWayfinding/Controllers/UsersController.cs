@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Users;
+using BrightLandsWayfinding.Models.Rooms;
+using BrightLandsWayfinding.Models.Companies;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -62,6 +64,13 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Company c in _context.Companies)
+            {
+                selectList.Add(new SelectListItem { Text = c.Name, Value = c.ID.ToString() });
+            }
+
+            ViewBag.Companies = selectList;
             return View(user);
         }
 
@@ -78,6 +87,13 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Company c in _context.Companies)
+            {
+                selectList.Add(new SelectListItem { Text = c.Name, Value = c.ID.ToString() });
+            }
+
+            ViewBag.Companies = selectList;
             return View(user);
         }
 
@@ -113,6 +129,13 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Company c in _context.Companies)
+            {
+                selectList.Add(new SelectListItem { Text = c.Name, Value = c.ID.ToString() });
+            }
+
+            ViewBag.Companies = selectList;
             return View(user);
         }
 

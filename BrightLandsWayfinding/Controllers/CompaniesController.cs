@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Companies;
+using BrightLandsWayfinding.Models.Rooms;
+using BrightLandsWayfinding.Models.Buildings;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -22,7 +24,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Companies
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Companies.ToListAsync());
+              return View(await _context.Companies.Include(c => c.Employees).ToListAsync());
         }
 
         // GET: Companies/Details/5
@@ -39,7 +41,8 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            
             return View(company);
         }
 
@@ -62,6 +65,13 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Room r in _context.Rooms)
+            {
+                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+            }
+
+            ViewBag.Rooms = selectList;
             return View(company);
         }
 
@@ -78,6 +88,13 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Room r in _context.Rooms)
+            {
+                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+            }
+
+            ViewBag.Rooms = selectList;
             return View(company);
         }
 
@@ -111,6 +128,13 @@ namespace BrightLandsWayfinding.Controllers
                         throw;
                     }
                 }
+                List<SelectListItem> selectList = new List<SelectListItem>();
+                foreach (Room r in _context.Rooms)
+                {
+                    selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+                }
+
+                ViewBag.Rooms = selectList;
                 return RedirectToAction(nameof(Index));
             }
             return View(company);

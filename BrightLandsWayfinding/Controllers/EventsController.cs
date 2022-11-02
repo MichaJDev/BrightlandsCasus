@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Events;
+using BrightLandsWayfinding.Models.Rooms;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -22,7 +23,14 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Event.ToListAsync());
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Room r in _context.Rooms)
+            {
+                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+            }
+
+            ViewBag.Rooms = selectList;
+            return View(await _context.Event.Include(e => e.Room).ToListAsync());
         }
 
         // GET: Events/Details/5
@@ -62,6 +70,13 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Room r in _context.Rooms)
+            {
+                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+            }
+
+            ViewBag.Rooms = selectList;
             return View(@event);
         }
 
@@ -78,6 +93,13 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Room r in _context.Rooms)
+            {
+                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+            }
+
+            ViewBag.Rooms = selectList;
             return View(@event);
         }
 
@@ -113,6 +135,13 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            foreach (Room r in _context.Rooms)
+            {
+                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
+            }
+
+            ViewBag.Rooms = selectList;
             return View(@event);
         }
 

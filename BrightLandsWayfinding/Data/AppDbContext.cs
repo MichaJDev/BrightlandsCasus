@@ -1,11 +1,11 @@
 ﻿using BrightLandsWayfinding.Models.Companies;
-using BrightLandsWayfinding.Models.Locations;
 using BrightLandsWayfinding.Models.Stories;
 using BrightLandsWayfinding.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Models.Steps;
 using BrightLandsWayfinding.Models.Rooms;
 using BrightLandsWayfinding.Models.Events;
+using BrightLandsWayfinding.Models.Buildings;
 
 namespace BrightLandsWayfinding.Data
 {
