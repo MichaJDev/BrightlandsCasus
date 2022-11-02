@@ -4,6 +4,7 @@ using BrightLandsWayfinding.Models.Offices;
 using BrightLandsWayfinding.Models.Stories;
 using BrightLandsWayfinding.Models.Users;
 using Microsoft.EntityFrameworkCore;
+using BrightLandsWayfinding.Models.Steps;
 
 namespace BrightLandsWayfinding.Data
 {
@@ -33,5 +34,7 @@ namespace BrightLandsWayfinding.Data
         }
 
         public DbSet<BrightLandsWayfinding.Models.Users.User> User { get; set; }
+
+        public DbSet<BrightLandsWayfinding.Models.Steps.Step> Step { get; set; }
     }
 }

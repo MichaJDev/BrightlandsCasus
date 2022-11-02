@@ -91,6 +91,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Steps/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Steps/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Steps/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Steps/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Steps/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Stories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Rvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
