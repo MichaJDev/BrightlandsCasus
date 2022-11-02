@@ -6,89 +6,89 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
-using BrightLandsWayfinding.Models.Locations;
+using BrightLandsWayfinding.Models.Events;
 
 namespace BrightLandsWayfinding.Controllers
 {
-    public class LocationsController : Controller
+    public class EventsController : Controller
     {
         private readonly AppDbContext _context;
 
-        public LocationsController(AppDbContext context)
+        public EventsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Locations
+        // GET: Events
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Locations.ToListAsync());
+              return View(await _context.Event.ToListAsync());
         }
 
-        // GET: Locations/Details/5
+        // GET: Events/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Locations == null)
+            if (id == null || _context.Event == null)
             {
                 return NotFound();
             }
 
-            var location = await _context.Locations
+            var @event = await _context.Event
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (location == null)
+            if (@event == null)
             {
                 return NotFound();
             }
 
-            return View(location);
+            return View(@event);
         }
 
-        // GET: Locations/Create
+        // GET: Events/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Locations/Create
+        // POST: Events/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Address,PostalCode,City,Region,Country")] Location location)
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,StartTime,EndTime")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(location);
+                _context.Add(@event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(location);
+            return View(@event);
         }
 
-        // GET: Locations/Edit/5
+        // GET: Events/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Locations == null)
+            if (id == null || _context.Event == null)
             {
                 return NotFound();
             }
 
-            var location = await _context.Locations.FindAsync(id);
-            if (location == null)
+            var @event = await _context.Event.FindAsync(id);
+            if (@event == null)
             {
                 return NotFound();
             }
-            return View(location);
+            return View(@event);
         }
 
-        // POST: Locations/Edit/5
+        // POST: Events/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Address,PostalCode,City,Region,Country")] Location location)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,StartTime,EndTime")] Event @event)
         {
-            if (id != location.ID)
+            if (id != @event.ID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace BrightLandsWayfinding.Controllers
             {
                 try
                 {
-                    _context.Update(location);
+                    _context.Update(@event);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LocationExists(location.ID))
+                    if (!EventExists(@event.ID))
                     {
                         return NotFound();
                     }
@@ -113,49 +113,49 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(location);
+            return View(@event);
         }
 
-        // GET: Locations/Delete/5
+        // GET: Events/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Locations == null)
+            if (id == null || _context.Event == null)
             {
                 return NotFound();
             }
 
-            var location = await _context.Locations
+            var @event = await _context.Event
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (location == null)
+            if (@event == null)
             {
                 return NotFound();
             }
 
-            return View(location);
+            return View(@event);
         }
 
-        // POST: Locations/Delete/5
+        // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Locations == null)
+            if (_context.Event == null)
             {
-                return Problem("Entity set 'AppDbContext.Locations'  is null.");
+                return Problem("Entity set 'AppDbContext.Event'  is null.");
             }
-            var location = await _context.Locations.FindAsync(id);
-            if (location != null)
+            var @event = await _context.Event.FindAsync(id);
+            if (@event != null)
             {
-                _context.Locations.Remove(location);
+                _context.Event.Remove(@event);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool LocationExists(int id)
+        private bool EventExists(int id)
         {
-          return _context.Locations.Any(e => e.ID == id);
+          return _context.Event.Any(e => e.ID == id);
         }
     }
 }

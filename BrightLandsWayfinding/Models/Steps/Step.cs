@@ -1,5 +1,4 @@
-﻿using BrightLandsWayfinding.Models.Offices;
-using MessagePack;
+﻿using BrightLandsWayfinding.Models.Rooms;
 
 namespace BrightLandsWayfinding.Models.Steps
 {
@@ -7,6 +6,6 @@ namespace BrightLandsWayfinding.Models.Steps
     {
         public int ID { get; set; }
         public string Description { get; set; }
-        public Office Office { get; set; }
+        public Room Room { get; set; }
     }
 }

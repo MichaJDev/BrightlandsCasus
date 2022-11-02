@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BrightLandsWayfinding.Models.Offices.Office>
+﻿@model IEnumerable<BrightLandsWayfinding.Models.Rooms.Room>
 
 @{
     ViewData["Title"] = "Index";
@@ -16,6 +16,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -24,6 +27,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

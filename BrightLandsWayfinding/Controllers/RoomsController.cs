@@ -6,89 +6,89 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
-using BrightLandsWayfinding.Models.Offices;
+using BrightLandsWayfinding.Models.Rooms;
 
 namespace BrightLandsWayfinding.Controllers
 {
-    public class OfficesController : Controller
+    public class RoomsController : Controller
     {
         private readonly AppDbContext _context;
 
-        public OfficesController(AppDbContext context)
+        public RoomsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Offices
+        // GET: Rooms
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Offices.ToListAsync());
+              return View(await _context.Rooms.ToListAsync());
         }
 
-        // GET: Offices/Details/5
+        // GET: Rooms/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Offices == null)
+            if (id == null || _context.Rooms == null)
             {
                 return NotFound();
             }
 
-            var office = await _context.Offices
+            var room = await _context.Rooms
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (office == null)
+            if (room == null)
             {
                 return NotFound();
             }
 
-            return View(office);
+            return View(room);
         }
 
-        // GET: Offices/Create
+        // GET: Rooms/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Offices/Create
+        // POST: Rooms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Story,Company,NavigationSteps")] Office office)
+        public async Task<IActionResult> Create([Bind("ID,Name,Type")] Room room)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(office);
+                _context.Add(room);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(office);
+            return View(room);
         }
 
-        // GET: Offices/Edit/5
+        // GET: Rooms/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Offices == null)
+            if (id == null || _context.Rooms == null)
             {
                 return NotFound();
             }
 
-            var office = await _context.Offices.FindAsync(id);
-            if (office == null)
+            var room = await _context.Rooms.FindAsync(id);
+            if (room == null)
             {
                 return NotFound();
             }
-            return View(office);
+            return View(room);
         }
 
-        // POST: Offices/Edit/5
+        // POST: Rooms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Story,Company,NavigationSteps")] Office office)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Type")] Room room)
         {
-            if (id != office.ID)
+            if (id != room.ID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace BrightLandsWayfinding.Controllers
             {
                 try
                 {
-                    _context.Update(office);
+                    _context.Update(room);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OfficeExists(office.ID))
+                    if (!RoomExists(room.ID))
                     {
                         return NotFound();
                     }
@@ -113,49 +113,49 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(office);
+            return View(room);
         }
 
-        // GET: Offices/Delete/5
+        // GET: Rooms/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Offices == null)
+            if (id == null || _context.Rooms == null)
             {
                 return NotFound();
             }
 
-            var office = await _context.Offices
+            var room = await _context.Rooms
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (office == null)
+            if (room == null)
             {
                 return NotFound();
             }
 
-            return View(office);
+            return View(room);
         }
 
-        // POST: Offices/Delete/5
+        // POST: Rooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Offices == null)
+            if (_context.Rooms == null)
             {
-                return Problem("Entity set 'AppDbContext.Offices'  is null.");
+                return Problem("Entity set 'AppDbContext.Rooms'  is null.");
             }
-            var office = await _context.Offices.FindAsync(id);
-            if (office != null)
+            var room = await _context.Rooms.FindAsync(id);
+            if (room != null)
             {
-                _context.Offices.Remove(office);
+                _context.Rooms.Remove(room);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OfficeExists(int id)
+        private bool RoomExists(int id)
         {
-          return _context.Offices.Any(e => e.ID == id);
+          return _context.Rooms.Any(e => e.ID == id);
         }
     }
 }

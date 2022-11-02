@@ -1,5 +1,5 @@
 ﻿using BrightLandsWayfinding.Models.Locations;
-using BrightLandsWayfinding.Models.Offices;
+using BrightLandsWayfinding.Models.Rooms;
 
 namespace BrightLandsWayfinding.Models.Stories
 {
@@ -7,8 +7,8 @@ namespace BrightLandsWayfinding.Models.Stories
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public List<Office>? Offices { get; set; }
-        public Location? Location { get; set; }
+        public List<Room>? Rooms { get; set; }
+        public Building? Building { get; set; }
 
     }
 }

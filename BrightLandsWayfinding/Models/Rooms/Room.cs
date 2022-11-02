@@ -1,15 +1,16 @@
 ﻿using BrightLandsWayfinding.Models.Companies;
+using BrightLandsWayfinding.Models.enums.RoomType;
 using BrightLandsWayfinding.Models.Steps;
 using BrightLandsWayfinding.Models.Stories;
 
-namespace BrightLandsWayfinding.Models.Offices
+namespace BrightLandsWayfinding.Models.Rooms
 {
-    public class Office
+    public class Room
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public Story? Story { get; set; }
         public Company? Company { get; set; }
-        public List<Step> NavigationSteps { get; set; }
+        public RoomType? Type { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace BrightLandsWayfinding.Models.Locations
 {
-    public class Location
+    public class Building
     {
         public int ID { get; set; }
         public string Name { get; set; }

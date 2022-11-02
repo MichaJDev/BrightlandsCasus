@@ -1,4 +1,4 @@
-﻿@model BrightLandsWayfinding.Models.Offices.Office
+﻿@model BrightLandsWayfinding.Models.Rooms.Room
 
 @{
     ViewData["Title"] = "Details";
@@ -8,7 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Office</h4>
+    <h4>Room</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,6 +16,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
         </dd>
     </dl>
 </div>

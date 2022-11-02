@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Developement\C#\BrightlandsCasus\BrightLandsWayfinding
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Companies/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFuaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -35,6 +55,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFuaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -43,44 +83,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Locations/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXENyZWF0ZS5jc2h0bWw=
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Rooms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Locations/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXERlbGV0ZS5jc2h0bWw=
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Rooms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Locations/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXERldGFpbHMuY3NodG1s
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Rooms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Locations/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXEVkaXQuY3NodG1s
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Rooms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Locations/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25zXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Offices/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Offices/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Offices/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Offices/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Offices/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmaWNlc1xJbmRleC5jc2h0bWw=
+[G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Rooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Developement/C\#/BrightlandsCasus/BrightLandsWayfinding/Views/Shared/Error.cshtml]
