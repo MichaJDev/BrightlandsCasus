@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e7KYY3s/cSo1PRLguE4iU2UQ5rHGU1LHPlLAFoqcNR6Rg3jOPFOdURHodqWwrLPLww4Qur9HyFpHl6SeruJmjA==",
+  "dgSpecHash": "YlpUvvNas4MxfVw9Sln/TJhAaNNU3Sf0Ztxn89hZTxIyUgOAgN3vcWdGOOX+w7qdhZjy9stVMPkwVSS4puFy7A==",
   "success": true,
-  "projectFilePath": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
+  "projectFilePath": "D:\\Programming\\HBO ICT\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xflak\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\xflak\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
