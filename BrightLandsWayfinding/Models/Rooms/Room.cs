@@ -9,8 +9,8 @@ namespace BrightLandsWayfinding.Models.Rooms
     {
         public int ID { get; set; }
         public string Name { get; set; }
+        public int StoryID { get; set; }
         public Story? Story { get; set; }
-        public Company? Company { get; set; }
         public RoomType? Type { get; set; }
     }
 }

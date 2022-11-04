@@ -19,6 +19,10 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="BuildingID" class="control-label"></label>
+                <select asp-for="BuildingID" class ="form-control" asp-items="ViewBag.BuildingID"></select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

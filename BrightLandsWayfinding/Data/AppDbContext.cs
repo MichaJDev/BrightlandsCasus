@@ -22,7 +22,7 @@ namespace BrightLandsWayfinding.Data
         public DbSet<Story> Stories { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Step> Step { get; set; }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<BrightLandsWayfinding.Models.Events.Event> Event { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Building>()
@@ -36,7 +36,7 @@ namespace BrightLandsWayfinding.Data
                 .WithOne(e => e.Company);
         }
 
-        public DbSet<BrightLandsWayfinding.Models.Events.Event> Event { get; set; }
+      
 
 
     }

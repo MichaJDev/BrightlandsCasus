@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+.nav-link-style {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #A29A99;
+    padding: 10px;
+}

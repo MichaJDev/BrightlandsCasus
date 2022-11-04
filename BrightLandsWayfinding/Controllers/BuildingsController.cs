@@ -22,7 +22,9 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Buildings
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Buildings.ToListAsync());
+            ViewBag.Companies = _context.Companies;
+            ViewBag.Users = _context.User;
+            return View(await _context.Buildings.Include(m => m.Stories).ToListAsync());
         }
 
         // GET: Buildings/Details/5
@@ -33,19 +35,22 @@ namespace BrightLandsWayfinding.Controllers
                 return NotFound();
             }
 
-            var building = await _context.Buildings
+            var building = await _context.Buildings.Include(b => b.Stories)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (building == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(building);
         }
 
         // GET: Buildings/Create
         public IActionResult Create()
         {
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View();
         }
 
@@ -62,6 +67,8 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(building);
         }
 
@@ -74,10 +81,13 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var building = await _context.Buildings.FindAsync(id);
+            
             if (building == null)
             {
                 return NotFound();
             }
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(building);
         }
 
@@ -113,6 +123,8 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(building);
         }
 
@@ -130,7 +142,8 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(building);
         }
 
@@ -148,7 +161,8 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Buildings.Remove(building);
             }
-            
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

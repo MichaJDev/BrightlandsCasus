@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Users;
-using BrightLandsWayfinding.Models.Rooms;
-using BrightLandsWayfinding.Models.Companies;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -24,7 +22,10 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-              return View(await _context.User.ToListAsync());
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            var appDbContext = _context.User.Include(u => u.Company);
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: Users/Details/5
@@ -36,18 +37,23 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var user = await _context.User
+                .Include(u => u.Company)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(user);
         }
 
         // GET: Users/Create
         public IActionResult Create()
         {
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name");
             return View();
         }
 
@@ -56,7 +62,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Prefix,Name,MiddleName,Surname,Suffix,EmailAddress,TelephoneNumber,DateOfBirth,Gender,UserType,Description")] User user)
+        public async Task<IActionResult> Create([Bind("ID,Prefix,Name,MiddleName,Surname,Suffix,EmailAddress,TelephoneNumber,DateOfBirth,Gender,UserType,Description,CompanyID")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -64,13 +70,9 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Company c in _context.Companies)
-            {
-                selectList.Add(new SelectListItem { Text = c.Name, Value = c.ID.ToString() });
-            }
-
-            ViewBag.Companies = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", user.CompanyID);
             return View(user);
         }
 
@@ -87,13 +89,9 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Company c in _context.Companies)
-            {
-                selectList.Add(new SelectListItem { Text = c.Name, Value = c.ID.ToString() });
-            }
-
-            ViewBag.Companies = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", user.CompanyID);
             return View(user);
         }
 
@@ -102,7 +100,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Prefix,Name,MiddleName,Surname,Suffix,EmailAddress,TelephoneNumber,DateOfBirth,Gender,UserType,Description")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Prefix,Name,MiddleName,Surname,Suffix,EmailAddress,TelephoneNumber,DateOfBirth,Gender,UserType,Description,CompanyID")] User user)
         {
             if (id != user.ID)
             {
@@ -129,13 +127,9 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Company c in _context.Companies)
-            {
-                selectList.Add(new SelectListItem { Text = c.Name, Value = c.ID.ToString() });
-            }
-
-            ViewBag.Companies = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", user.CompanyID);
             return View(user);
         }
 
@@ -148,12 +142,14 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var user = await _context.User
+                .Include(u => u.Company)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (user == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(user);
         }
 
@@ -171,7 +167,8 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.User.Remove(user);
             }
-            
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -25,6 +25,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.EndTime)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -42,6 +45,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.ID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

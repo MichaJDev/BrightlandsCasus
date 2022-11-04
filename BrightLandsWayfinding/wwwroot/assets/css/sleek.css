@@ -155,9 +155,10 @@ sup {
 }
 
 a {
-  color: #4c84ff;
-  text-decoration: none;
-  background-color: transparent;
+    color: #A29A99;
+    text-decoration: none;
+    background-color: transparent;
+    font-family: sans-serif;
 }
 
 a:hover {

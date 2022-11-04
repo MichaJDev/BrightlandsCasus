@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Rooms;
-using BrightLandsWayfinding.Models.Buildings;
-using BrightLandsWayfinding.Models.Stories;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -24,14 +22,10 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Story s in _context.Stories)
-            {
-                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
-            }
-
-            ViewBag.Stories = selectList;
-            return View(await _context.Rooms.Include(s => s.Story).ToListAsync());
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            var appDbContext = _context.Rooms.Include(r => r.Story);
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: Rooms/Details/5
@@ -43,18 +37,23 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var room = await _context.Rooms
+                .Include(r => r.Story)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (room == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(room);
         }
 
         // GET: Rooms/Create
         public IActionResult Create()
         {
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["StoryID"] = new SelectList(_context.Stories, "ID", "Name");
             return View();
         }
 
@@ -63,7 +62,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Type,Story")] Room room)
+        public async Task<IActionResult> Create([Bind("ID,Name,StoryID,Type")] Room room)
         {
             if (ModelState.IsValid)
             {
@@ -71,13 +70,9 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Story s in _context.Stories)
-            {
-                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
-            }
-
-            ViewBag.Stories = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["StoryID"] = new SelectList(_context.Stories, "ID", "Name", room.StoryID);
             return View(room);
         }
 
@@ -94,13 +89,9 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Story s in _context.Stories)
-            {
-                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
-            }
-
-            ViewBag.Stories = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["StoryID"] = new SelectList(_context.Stories, "ID", "Name", room.StoryID);
             return View(room);
         }
 
@@ -109,7 +100,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Type")] Room room)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,StoryID,Type")] Room room)
         {
             if (id != room.ID)
             {
@@ -136,13 +127,9 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Story s in _context.Stories)
-            {
-                selectList.Add(new SelectListItem { Text = s.Name, Value = s.ID.ToString() });
-            }
-
-            ViewBag.Stories = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["StoryID"] = new SelectList(_context.Stories, "ID", "Name", room.StoryID);
             return View(room);
         }
 
@@ -155,12 +142,14 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var room = await _context.Rooms
+                .Include(r => r.Story)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (room == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(room);
         }
 
@@ -178,7 +167,8 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Rooms.Remove(room);
             }
-            
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

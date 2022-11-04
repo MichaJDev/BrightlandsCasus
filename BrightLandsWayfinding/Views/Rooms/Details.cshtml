@@ -1,4 +1,5 @@
-﻿@model BrightLandsWayfinding.Models.Rooms.Room
+﻿@using BrightLandsWayfinding.Models.Companies
+@model BrightLandsWayfinding.Models.Rooms.Room
 
 @{
     ViewData["Title"] = "Details";
@@ -18,6 +19,12 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+        <dd class = "col-sm-10">
+            <a asp-controller="Stories" asp-action="Details" asp-route-id="@Model.StoryID">@Html.DisplayFor(model => model.Story.Name)</a>
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Type)
         </dt>
         <dd class = "col-sm-10">
@@ -25,7 +32,35 @@
         </dd>
     </dl>
 </div>
+<div class="card">
+    <h3 class="card-header">Company</h3>
+    <div class=card-body>
+        @{
+            if (ViewBag.Companies != null)
+            {
+                foreach (Company c in ViewBag.Companies)
+                {
+                    if (c.RoomID == Model.ID)
+                    {
+                                                    <div class="row">
+                                                                    <div class="col-8"><a asp-controller="Companies" asp-action="Details" asp-route-id="@c.ID">@c.Name</a></div>
+                                                                                <div class="col-2"><a asp-controller="Companies" asp-action="Edit" asp-route-id="@c.ID">Edit</a> | 
+                                                                                                            <a asp-controller="Companies" asp-action="Delete" asp-route-id="@c.ID">Delete</a></div> 
+
+                                                    </div>
+
+                    }
+                    else
+                    {
+                                        <p class="alert-warning">This room doesnt have a company yet! Create one  <a asp-controller="Companies" asp-action="Create">Here</a></p>
+                        break;
+                    }
+                }
+            }            
+        }
+    </div>
+</div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

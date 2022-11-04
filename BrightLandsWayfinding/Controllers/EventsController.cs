@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Events;
-using BrightLandsWayfinding.Models.Rooms;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -23,14 +22,10 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Room r in _context.Rooms)
-            {
-                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
-            }
-
-            ViewBag.Rooms = selectList;
-            return View(await _context.Event.Include(e => e.Room).ToListAsync());
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            var appDbContext = _context.Event.Include(m => m.Room);
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: Events/Details/5
@@ -42,18 +37,23 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var @event = await _context.Event
+                .Include(m => m.Room)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (@event == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(@event);
         }
 
         // GET: Events/Create
         public IActionResult Create()
         {
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name");
             return View();
         }
 
@@ -62,7 +62,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Description,StartTime,EndTime")] Event @event)
+        public async Task<IActionResult> Create([Bind("ID,Name,Description,StartTime,EndTime,RoomID")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -70,13 +70,9 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Room r in _context.Rooms)
-            {
-                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
-            }
-
-            ViewBag.Rooms = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", @event.RoomID);
             return View(@event);
         }
 
@@ -93,13 +89,9 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Room r in _context.Rooms)
-            {
-                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
-            }
-
-            ViewBag.Rooms = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", @event.RoomID);
             return View(@event);
         }
 
@@ -108,7 +100,7 @@ namespace BrightLandsWayfinding.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,StartTime,EndTime")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,StartTime,EndTime,RoomID")] Event @event)
         {
             if (id != @event.ID)
             {
@@ -135,13 +127,9 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (Room r in _context.Rooms)
-            {
-                selectList.Add(new SelectListItem { Text = r.Name, Value = r.ID.ToString() });
-            }
-
-            ViewBag.Rooms = selectList;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", @event.RoomID);
             return View(@event);
         }
 
@@ -154,12 +142,14 @@ namespace BrightLandsWayfinding.Controllers
             }
 
             var @event = await _context.Event
+                .Include(m => m.Room)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (@event == null)
             {
                 return NotFound();
             }
-
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             return View(@event);
         }
 
@@ -177,7 +167,8 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Event.Remove(@event);
             }
-            
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -20,6 +20,7 @@ namespace BrightLandsWayfinding.Models.Companies
         public string? EmailAddress { get; set; }
         public string? WebsiteURL { get; set; }
         public List<User>? Employees { get; set; }
+        public int RoomID { get; set; }
         public Room? Room { get; set; }
     }
 }

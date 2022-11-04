@@ -20,8 +20,25 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="StoryID" class="control-label"></label>
+                <select asp-for="StoryID" class="form-control" asp-items="ViewBag.StoryID"></select>
+                <span asp-validation-for="StoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Type" class="form-control" />
+                <select asp-for="Type" class="form-control">
+                    <option value="0">Office</option>
+                    <option value="1">Hall</option>
+                    <option value="2">Entrance</option>
+                    <option value="3">Exit</option>
+                    <option value="4">Staircase</option>
+                    <option value="5">Work Room</option>
+                    <option value="6">Cafetaria</option>
+                    <option value="7">Storage</option>
+                    <option value="8">Elevator</option>
+                    <option value="9">Parking Lot</option>
+                </select>
+
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -4,6 +4,7 @@ using BrightLandsWayfinding.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrightLandsWayfinding.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221103191257_AddRelationToRom")]
+    partial class AddRelationToRom
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,7 +85,7 @@ namespace BrightLandsWayfinding.Migrations
                     b.Property<string>("ProfileImage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoomID")
+                    b.Property<int?>("RoomID")
                         .HasColumnType("int");
 
                     b.Property<string>("TelephoneNumber")
@@ -118,7 +120,7 @@ namespace BrightLandsWayfinding.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RoomID")
+                    b.Property<int?>("RoomID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartTime")
@@ -143,7 +145,7 @@ namespace BrightLandsWayfinding.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StoryID")
+                    b.Property<int?>("StoryID")
                         .HasColumnType("int");
 
                     b.Property<int?>("Type")
@@ -186,7 +188,7 @@ namespace BrightLandsWayfinding.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("BuildingID")
+                    b.Property<int?>("BuildingID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -208,7 +210,7 @@ namespace BrightLandsWayfinding.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("CompanyID")
+                    b.Property<int?>("CompanyID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -263,9 +265,7 @@ namespace BrightLandsWayfinding.Migrations
                 {
                     b.HasOne("BrightLandsWayfinding.Models.Rooms.Room", "Room")
                         .WithMany()
-                        .HasForeignKey("RoomID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoomID");
 
                     b.Navigation("Room");
                 });
@@ -274,9 +274,7 @@ namespace BrightLandsWayfinding.Migrations
                 {
                     b.HasOne("BrightLandsWayfinding.Models.Rooms.Room", "Room")
                         .WithMany()
-                        .HasForeignKey("RoomID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RoomID");
 
                     b.Navigation("Room");
                 });
@@ -285,9 +283,7 @@ namespace BrightLandsWayfinding.Migrations
                 {
                     b.HasOne("BrightLandsWayfinding.Models.Stories.Story", "Story")
                         .WithMany("Rooms")
-                        .HasForeignKey("StoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StoryID");
 
                     b.Navigation("Story");
                 });
@@ -307,9 +303,7 @@ namespace BrightLandsWayfinding.Migrations
                 {
                     b.HasOne("BrightLandsWayfinding.Models.Buildings.Building", "Building")
                         .WithMany("Stories")
-                        .HasForeignKey("BuildingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BuildingID");
 
                     b.Navigation("Building");
                 });
@@ -318,9 +312,7 @@ namespace BrightLandsWayfinding.Migrations
                 {
                     b.HasOne("BrightLandsWayfinding.Models.Companies.Company", "Company")
                         .WithMany("Employees")
-                        .HasForeignKey("CompanyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompanyID");
 
                     b.Navigation("Company");
                 });

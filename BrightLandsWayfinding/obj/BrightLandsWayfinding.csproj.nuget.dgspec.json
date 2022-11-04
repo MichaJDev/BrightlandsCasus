@@ -1,20 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\HBO ICT\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj": {}
+    "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\HBO ICT\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj": {
+    "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\HBO ICT\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
+        "projectUniqueName": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
         "projectName": "BrightLandsWayfinding",
-        "projectPath": "D:\\Programming\\HBO ICT\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
+        "projectPath": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
         "packagesPath": "C:\\Users\\xflak\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\HBO ICT\\BrightlandsCasus\\BrightLandsWayfinding\\obj\\",
+        "outputPath": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\xflak\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
