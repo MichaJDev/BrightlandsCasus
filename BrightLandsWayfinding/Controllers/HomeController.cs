@@ -23,6 +23,14 @@ namespace BrightLandsWayfinding.Controllers
             return View();
         }
 
+        public IActionResult UserIndex()
+        {
+            ViewBag.Buildings = _context.Buildings;
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             ViewBag.Users = _context.User;

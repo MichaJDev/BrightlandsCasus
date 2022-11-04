@@ -88,7 +88,7 @@
                 <div id="sidebar" class="sidebar sidebar-with-footer">
                     <!-- Aplication Brand -->
                     <div class="app-brand">
-                        <a asp-controller="Home" asp-action="Index" title="Home">
+                        <a asp-controller="Home" asp-action="UserIndex" title="Home">
                             <svg class="brand-icon"
                                  xmlns="http://www.w3.org/2000/svg"
                                  preserveAspectRatio="xMidYMid"
@@ -163,7 +163,7 @@
                                     @{
                                         foreach (User u in ViewBag.Users)
                                         {
-                                                                                <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="Details" asp-route-id="@u.ID" >@u.Name</a></span></li>
+                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="Details" asp-route-id="@u.ID" >@u.Name @u.Surname</a></span></li>
 
                                         }
 
@@ -687,9 +687,12 @@
                                     </li>
                                 </ul>
                             </li>*@
-                            <li class="right-sidebar-in right-sidebar-2-menu">
-                                <i class="mdi mdi-settings mdi-spin"></i>
-                            </li>
+                            
+                            <a href="/Home/Privacy">
+                                <li class="right-sidebar-in right-sidebar-2-menu" >
+                                    <i class="mdi mdi-settings mdi-spin"></i>
+                                </li>
+                            </a>
                             <!-- User Account -->
                             @*<li class="dropdown user-menu">
                                 <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
