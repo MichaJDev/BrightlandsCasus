@@ -17,6 +17,7 @@ namespace BrightLandsWayfinding.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Buildings = _context.Buildings;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View();

@@ -29,6 +29,9 @@
 <div class="card">
     <h3 class="card-header">Rooms</h3>
     <div class="card-body">
+        <a asp-action="Create" asp-controller="Rooms" class="btn btn-primary">Create New Room..</a>
+        <br />
+        <br />
     @{
         if (Model.Rooms != null)
         {

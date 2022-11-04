@@ -1,8 +1,43 @@
-﻿@{
+﻿@using BrightLandsWayfinding.Models.Buildings
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if(ViewBag.Buildings != null){
+        <div class="card">
+            <h2 class="card-header">Buildings</h2>
+            <div class="card-body">
+                @{
+                    foreach (Building b in ViewBag.Buildings)
+                    {
+                        <a asp-controller="Buildings" asp-action="Details" asp-route-id="@b.ID" class="btn btn-primary">@b.Name</a> 
+                    }
+                }
+            </div>
+        </div>
+    }else{
+        <div class="row">
+            <div class="col"></div> 
+                <div class="col"><div class="card" style="width: 850px;">
+                    <h2 class="card-header">Create a new Building!</h2>
+                    <div class="card -body">
+                        <br />
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col-8"><a asp-controller="Buildings" asp-action="Create" class="btn btn-primary">Create New Building</a></div>
+                            <div class="col-2"></div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div> 
+            <div class="col"></div> 
+            
+        </div>
+    }
 </div>

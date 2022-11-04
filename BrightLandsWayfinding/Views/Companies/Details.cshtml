@@ -59,6 +59,9 @@
 <div class="card">
     <h3 class="card-header">Employees</h3>
     <div class=card-body>
+        <a asp-action="Create" asp-controller="Users" class="btn btn-primary">Create New User..</a>
+        <br />
+        <br />
         @{
             if (ViewBag.Users != null)
             {

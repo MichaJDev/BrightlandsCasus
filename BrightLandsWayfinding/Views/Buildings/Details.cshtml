@@ -53,6 +53,9 @@
 <div class="card">
     <h3 class="card-header">Stories</h3>
     <div  class="card-body">
+        <a asp-action="Create" asp-controller="Stories" class="btn btn-primary">Create New Story..</a>
+        <br />
+        <br />
         @{
             if (Model.Stories != null)
             {
