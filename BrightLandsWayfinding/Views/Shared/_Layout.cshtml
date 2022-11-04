@@ -128,7 +128,7 @@
                                     @{
                                         foreach (Company c in ViewBag.Companies)
                                         {
-                                                                                        <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="Details" asp-route-id="@c.ID" >@c.Name</a></span></li>
+                                                                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="Details" asp-route-id="@c.ID" >@c.Name</a></span></li>
 
                                         }
 
@@ -163,7 +163,7 @@
                                     @{
                                         foreach (User u in ViewBag.Users)
                                         {
-                                                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="Details" asp-route-id="@u.ID" >@u.Name</a></span></li>
+                                                                                <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="Details" asp-route-id="@u.ID" >@u.Name</a></span></li>
 
                                         }
 
@@ -744,8 +744,8 @@
             <!-- Footer -->
             <footer class="footer mt-auto">
                 <div class="copyright bg-white">
-                    <p>
-                        Copyright &copy; <span id="copy-year"></span> a template by <a class="text-primary" href="https://themefisher.com" target="_blank">Themefisher</a>.
+                    <p style="font-size:8px;">
+                        Copyright &copy; <span id="copy-year"></span> a template by <a class="text-primary" href="https://themefisher.com" target="_blank">Themefisher</a> & was edited by Casus group 14 @Html.Raw("@")ZuydHogeschool. <a href="~/assets/LICENSE">READ LICENSE</a>
                     </p>
                 </div>
                 <script>
