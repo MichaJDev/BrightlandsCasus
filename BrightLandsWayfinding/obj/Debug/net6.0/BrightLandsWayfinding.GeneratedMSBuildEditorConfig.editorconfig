@@ -35,6 +35,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVpbGRpbmdzXFVzZXJJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Companies/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFuaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -55,6 +59,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFuaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Companies/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFuaWVzXFVzZXJJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -73,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Events/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Events/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXFVzZXJJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Home/Index.cshtml]
@@ -107,6 +119,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Rooms/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbXNcVXNlckluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -135,6 +151,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Steps/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RlcHNcVXNlckluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Stories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Rvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -155,6 +175,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Rvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Stories/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3Rvcmllc1xVc2VySW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -173,6 +197,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Users/UserIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcVXNlckluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/_ViewImports.cshtml]
