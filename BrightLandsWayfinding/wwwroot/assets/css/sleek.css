@@ -15743,9 +15743,9 @@ div.copied {
 
 /* App brand */
 .app-brand {
-  position: relative;
-  display: block;
-  background-color: #4c84ff;
+    position: relative;
+    display: block;
+    background-color: #4B0082;
 }
 
 .app-brand a {
@@ -15756,7 +15756,7 @@ div.copied {
   line-height: 75px;
   width: 250px;
   transition: width 0.3s ease-in-out;
-  padding-left: 1.56rem;
+  padding-left: 1.12rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
