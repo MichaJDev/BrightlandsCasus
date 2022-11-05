@@ -1,0 +1,62 @@
+﻿@using BrightLandsWayfinding.Models.Companies
+@model BrightLandsWayfinding.Models.Rooms.Room
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Story)
+        </dt>
+        <dd class = "col-sm-10">
+            <a asp-controller="Stories" asp-action="UserDetails" asp-route-id="@Model.StoryID">@Html.DisplayFor(model => model.Story.Name)</a>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+    </dl>
+</div>
+<div class="card">
+    <h3 class="card-header">Company</h3>
+    <div class=card-body>
+        @{
+            if (ViewBag.Companies != null)
+            {
+                foreach (Company c in ViewBag.Companies)
+                {
+                    if (c.RoomID == Model.ID)
+                    {
+                                                    <div class="row">
+                                                                    <div class="col-8"><a asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID">@c.Name</a></div>
+                                                    </div>
+
+                    }
+                    else
+                    {
+                                        <p class="alert-warning">This room doesnt have a company yet! </p>
+                        break;
+                    }
+                }
+            }            
+        }
+    </div>
+</div>
+<div>
+    <a asp-action="UserIndex">Back to List</a>
+</div>

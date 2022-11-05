@@ -1,0 +1,50 @@
+﻿@using BrightLandsWayfinding.Models.Rooms
+@model BrightLandsWayfinding.Models.Stories.Story
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Story</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Building)
+        </dt>
+        <dd class = "col-sm-10">
+              <a asp-controller="Buildings" asp-action="UserDetails" asp-route-id="@Model.BuildingID">@Html.DisplayFor(model => model.Building.Name)</a>
+        </dd>
+    </dl>
+</div>
+<div class="card">
+    <h3 class="card-header">Rooms</h3>
+    <div class="card-body">
+    @{
+        if (Model.Rooms != null)
+        {
+            foreach (Room r in Model.Rooms)
+            {
+                <div class="row">
+                                <div class="col-6">
+                                    <a asp-controller="Rooms" asp-action="UserDetails" asp-route-id="@r.ID">@r.Name</a> 
+                                </div>
+                </div> 
+
+            }
+        }
+    }    
+    </div>
+</div>
+<div>
+    <a asp-action="UserIndex">Back to List</a>
+</div>

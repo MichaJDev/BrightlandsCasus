@@ -8,8 +8,9 @@
     "\\BrightLandsWayfinding\\Views\\Shared",
     "\\BrightLandsWayfinding\\wwwroot",
     "\\BrightLandsWayfinding\\wwwroot\\assets",
+    "\\BrightLandsWayfinding\\wwwroot\\assets\\css",
     "\\BrightLandsWayfinding\\wwwroot\\assets\\js"
   ],
-  "SelectedNode": "\\BrightLandsWayfinding\\Controllers\\RoomsController.cs",
+  "SelectedNode": "\\BrightLandsWayfinding\\wwwroot\\assets\\css\\sleek.css",
   "PreviewInSolutionExplorer": false
 }
