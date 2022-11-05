@@ -8,11 +8,11 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BrightLandsWayfinding
 build_property.RootNamespace = BrightLandsWayfinding
-build_property.ProjectDir = C:\Users\Ramon\Source\Repos\MichaJDev\BrightlandsCasus\BrightLandsWayfinding\
+build_property.ProjectDir = C:\Users\Ramon\source\repos\MichaJDev\BrightlandsCasus\BrightLandsWayfinding\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Ramon\Source\Repos\MichaJDev\BrightlandsCasus\BrightLandsWayfinding
+build_property.MSBuildProjectDirectory = C:\Users\Ramon\source\repos\MichaJDev\BrightlandsCasus\BrightLandsWayfinding
 build_property._RazorSourceGeneratorDebug = 
 
 [C:/Users/Ramon/Source/Repos/MichaJDev/BrightlandsCasus/BrightLandsWayfinding/Views/Buildings/Create.cshtml]
