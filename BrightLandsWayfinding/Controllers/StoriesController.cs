@@ -28,6 +28,14 @@ namespace BrightLandsWayfinding.Controllers
             return View(await appDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> UserIndex()
+        {
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            var appDbContext = _context.Stories.Include(s => s.Building).Include(s => s.Rooms);
+            return View(await appDbContext.ToListAsync());
+        }
+
         // GET: Stories/Details/5
         public async Task<IActionResult> Details(int? id)
         {

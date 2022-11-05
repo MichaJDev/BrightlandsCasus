@@ -27,6 +27,13 @@ namespace BrightLandsWayfinding.Controllers
             var appDbContext = _context.Event.Include(m => m.Room);
             return View(await appDbContext.ToListAsync());
         }
+        public async Task<IActionResult> UserIndex()
+        {
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            var appDbContext = _context.Event.Include(m => m.Room);
+            return View(await appDbContext.ToListAsync());
+        }
 
         // GET: Events/Details/5
         public async Task<IActionResult> Details(int? id)
