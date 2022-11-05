@@ -67,8 +67,7 @@
                     if (u.CompanyID == Model.ID)
                     {
                                     <div class="row">
-                                        <div class="col-8"><a asp-action="UserDetails" asp-controller="Users" asp-route-id="@u.ID">@u.Name</a> | 
-                                @u.UserType</div>
+                                        <div class="col-8"><a asp-action="UserDetails" asp-controller="Users" asp-route-id="@u.ID">@u.Name @u.Surname</a> | @u.UserType</div>
                                     </div>
 
                     }
