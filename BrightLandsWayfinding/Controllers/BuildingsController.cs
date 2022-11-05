@@ -52,6 +52,23 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Companies = _context.Companies;
             return View(building);
         }
+        public async Task<IActionResult> UserDetails(int? id)
+        {
+            if (id == null || _context.Buildings == null)
+            {
+                return NotFound();
+            }
+
+            var building = await _context.Buildings.Include(b => b.Stories)
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (building == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Users = _context.User;
+            ViewBag.Companies = _context.Companies;
+            return View(building);
+        }
 
         // GET: Buildings/Create
         public IActionResult Create()
