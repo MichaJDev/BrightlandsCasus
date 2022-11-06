@@ -35,7 +35,7 @@
                                 @Html.DisplayFor(model => model.Type)
                     </dd>
                     <dt class = "col-sm-2">
-                                Company)
+                                Company
                     </dt>
                     <dd class = "col-sm-10">
                     @{
@@ -45,16 +45,13 @@
                             {
                                 if (c.RoomID == Model.ID)
                                 {
-                                                                    <div class="row">
-                                                                                    <div class="col"><a asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID">@c.Name</a></div>
-                                                                                             
-
-                                                                    </div>
-
+                                    <div class="row">
+                                        <div class="col"><a asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID">@c.Name</a></div>                                                                                       
+                                    </div>
                                 }
                                 else
                                 {
-                                                        <p class="alert-warning">This room doesnt have a company yet! Create one  <a asp-controller="Companies" asp-action="Create">Here</a></p>
+                                    <p>This room doesnt have a company init!</p>
                                     break;
                                 }
                             }

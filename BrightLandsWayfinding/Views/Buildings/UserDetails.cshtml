@@ -58,11 +58,11 @@
             {
                 foreach (Story s in Model.Stories)
                 {
-                                        <div class="row">
-                                                        <div class="col-6">
-                                                            <a asp-controller="Stories" asp-action="UserDetails" asp-route-id="@s.ID">@s.Name</a> 
-                                                        </div>                                                        
-                                        </div> 
+                    <div class="row">
+                        <div class="col-6">
+                            <a asp-controller="Stories" asp-action="UserDetails" asp-route-id="@s.ID">@s.Name</a> 
+                        </div>                                                        
+                    </div> 
                 }
             }
         }  
