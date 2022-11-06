@@ -34,6 +34,12 @@
                     <dd class = "col-sm-10">
                                 @Html.DisplayFor(model => model.Type)
                     </dd>
+                    <dt class = "col-sm-2">
+                                Company)
+                    </dt>
+                    <dd class = "col-sm-10">
+                                <a asp-controller="Companies" asp-action="Details" asp-route-id="@ViewBag.Companies.ID">@ViewBag.Companies.Name</a>
+                    </dd>
                 </dl>
             </div>
         <div class="col-5">
@@ -57,31 +63,7 @@
     </div>
 
 </div>
-<div class="card">
-    <h3 class="card-header">Company</h3>
-    <div class=card-body>
-        @{
-            if (ViewBag.Companies != null)
-            {
-                foreach (Company c in ViewBag.Companies)
-                {
-                    if (c.RoomID == Model.ID)
-                    {
-                                                                                    <div class="row">
-                                                                                                    <div class="col-8"><a asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID">@c.Name</a></div>
-                                                                                    </div>
 
-                    }
-                    else
-                    {
-                                                                        <p class="alert-warning">This room doesnt have a company yet! </p>
-                        break;
-                    }
-                }
-            }            
-        }
-    </div>
-</div>
 <div>
     <a asp-action="UserIndex">Back to List</a>
 </div>
