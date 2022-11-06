@@ -42,10 +42,12 @@
                 <div class="card-body">
                     @{
                         foreach(MapRoute r in ViewBag.Routes){
-                            <div class="row">
-                                <div class="col-1">@r.ID</div>
-                                <div class="col-9">@r.Description</div>
-                            </div>
+                            <a asp-controller="MapRoute" asp-action="UserDetails" asp-route-id="@r.ID">
+                                <div class="row">
+                                    <div class="col-1">@r.ID</div>
+                                    <div class="col-9">@r.Description</div>
+                                </div>
+                            </a>
                             <hr />
                         }
                     }
