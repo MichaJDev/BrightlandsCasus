@@ -77,7 +77,7 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Routes = _context.Routes.Where(m => m.EndLocationID == id);
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
-            ViewBag.Companies = _context.Companies.Select(c => c.RoomID == id);
+            ViewBag.Companies = (Company)_context.Companies.Select(c => c.RoomID == id);
             return View(room);
         }
 
