@@ -86,7 +86,9 @@ namespace BrightLandsWayfinding.Controllers
         {
             ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "Name");
             ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "Name");
-           
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
+            ViewBag.Companies = _context.Companies;
+            ViewBag.Users = _context.User;
             return View();
         }
 

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\BrightLandsWayfinding",
+    "\\BrightLandsWayfinding\\Migrations"
   ],
+  "SelectedNode": "\\BrightLandsWayfinding\\Migrations\\20221106151857_AddMapRouteAlterStep.cs",
   "PreviewInSolutionExplorer": false
 }

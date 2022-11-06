@@ -22,20 +22,20 @@
             @Html.DisplayNameFor(model => model.StartLocation)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StartLocation.ID)
+            @Html.DisplayFor(model => model.StartLocation.ID) @Html.DisplayFor(model => model.StartLocation.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.EndLocation)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EndLocation.ID)
+            @Html.DisplayFor(model => model.EndLocation.ID) @Html.DisplayFor(model => model.EndLocation.Name)
         </dd>
     </dl>
 </div>
 <div class="card">
     <h3 class="card-header">Stories</h3>
     <div  class="card-body">
-        <a asp-action="Create" asp-controller="Stories" class="btn btn-primary">Create New Story..</a>
+        <a asp-action="Create" asp-controller="Steps" class="btn btn-primary">Create New Steps..</a>
         <br />
         <br />
         @{

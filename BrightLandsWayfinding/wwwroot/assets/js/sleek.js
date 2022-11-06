@@ -264,7 +264,7 @@ $(document).ready(function () {
     }
 
   /*======== TOASTER ========*/
-  function callToaster(positionClass) {
+  /*function callToaster(positionClass) {
     if (document.getElementById("toaster")) {
       toastr.options = {
         closeButton: true,
@@ -291,7 +291,7 @@ $(document).ready(function () {
     callToaster("toast-top-right");
   }else {
     callToaster("toast-top-left");
-  }
+  }*/
 
   /*======== PROGRESS BAR ========*/
   NProgress.done();

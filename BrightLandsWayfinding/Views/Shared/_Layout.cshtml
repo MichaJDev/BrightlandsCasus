@@ -1,4 +1,5 @@
 ﻿@using BrightLandsWayfinding.Models.Companies
+@using BrightLandsWayfinding.Models.Events
 @using BrightLandsWayfinding.Models.Users
 <!DOCTYPE html>
 <html lang="en">
@@ -131,32 +132,14 @@
                                     <i class="mdi mdi-pencil-box-multiple"></i>
                                     <span class="nav-text">Companies</span> <b class="caret"></b>
                                 </a>
-
                                 <ul class="collapse " id="app" data-parent="#sidebar-menu">
                                     <div class="sub-menu">
-                                    @{
-                                        foreach (Company c in ViewBag.Companies)
-                                        {
-                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID" >@c.Name</a></span></li>
-
-                                        }
-
-
-
-                                    }
-
-                                    @*<li class="">
-                                                    <a class="sidenav-item-link" href="team.html">
-                                                        <span class="nav-text">Team</span>
-                                                    </a>
-                                                </li>
-
-                                                <li class="">
-                                                    <a class="sidenav-item-link" href="calendar.html">
-                                                        <span class="nav-text">Calendar</span>
-                                                    </a>
-                                                </li>*@
-
+                                        @{
+                                            foreach (Company c in ViewBag.Companies)
+                                            {
+                                                <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID" >@c.Name</a></span></li>
+                                            }
+                                        }                                    
                                     </div>
                                 </ul>
                             </li>
@@ -195,6 +178,23 @@
                                     </div>
                                 </ul>
                             </li>
+            <li class="has-sub ">
+                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#event"
+                   aria-expanded="false" aria-controls="event">
+                    <i class="mdi mdi-pencil-box-multiple"></i>
+                    <span class="nav-text">Events</span> <b class="caret"></b>
+                </a>
+                <ul class="collapse " id="event" data-parent="#sidebar-menu">
+                    <div class="sub-menu">
+                                    @{
+                                        foreach (Event e in ViewBag.Events)
+                                        {
+                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Events" asp-action="UserDetails" asp-route-id="@e.ID">@e.Name</a></span></li>
+                                        }
+                                    }
+                    </div>
+                </ul>
+            </li>
 
                 <!-- <li class="section-title">
                   UI Elements

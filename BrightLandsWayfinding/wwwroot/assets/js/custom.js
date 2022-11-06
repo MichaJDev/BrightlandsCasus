@@ -185,7 +185,7 @@ $(document).ready(function() {
   // });
 
   /*======== 9. TOASTER ========*/
-  function callToaster(positionClass) {
+  /*function callToaster(positionClass) {
     if (document.getElementById("toaster")) {
       toastr.options = {
         closeButton: true,
@@ -207,12 +207,12 @@ $(document).ready(function() {
       toastr.success("Welcome to Brightlands Maps", "Howdy!");
     }
   }
-
+  
   if (document.dir != "rtl" ){
     callToaster("toast-top-right");
   }else {
     callToaster("toast-top-left");
-  }
+  }*/
 
   // /*======== 10. PROGRESS BAR ========*/
   // NProgress.done();
