@@ -22,6 +22,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Companies
         public async Task<IActionResult> Index()
         {
+            
             ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
@@ -51,6 +52,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            
             ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;

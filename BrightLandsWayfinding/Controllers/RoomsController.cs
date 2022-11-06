@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
 using BrightLandsWayfinding.Models.Rooms;
+using BrightLandsWayfinding.Models.Companies;
 
 namespace BrightLandsWayfinding.Controllers
 {
@@ -22,6 +23,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Rooms
         public async Task<IActionResult> Index()
         {
+            
             ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
@@ -52,6 +54,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Routes = _context.Routes.Where(m => m.EndLocationID ==id);
             ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
@@ -71,6 +74,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Routes = _context.Routes.Where(m => m.EndLocationID == id);
             ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
