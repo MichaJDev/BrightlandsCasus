@@ -22,7 +22,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             var appDbContext = _context.User.Include(u => u.Company);
@@ -31,7 +31,7 @@ namespace BrightLandsWayfinding.Controllers
 
         public async Task<IActionResult> UserIndex()
         {
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             var appDbContext = _context.User.Include(u => u.Company);
@@ -53,7 +53,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(user);
@@ -72,7 +72,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(user);
@@ -81,7 +81,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name");
@@ -101,7 +101,7 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", user.CompanyID);
@@ -121,7 +121,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", user.CompanyID);
@@ -160,7 +160,7 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", user.CompanyID);
@@ -182,7 +182,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(user);
@@ -202,7 +202,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.User.Remove(user);
             }
-            ViewBag.Events = _context.Event;
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();
