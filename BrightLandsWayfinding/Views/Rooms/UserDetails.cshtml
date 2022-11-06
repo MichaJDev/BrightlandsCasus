@@ -38,7 +38,28 @@
                                 Company)
                     </dt>
                     <dd class = "col-sm-10">
-                                <a asp-controller="Companies" asp-action="Details" asp-route-id="@ViewBag.Companies.ID">@ViewBag.Companies.Name</a>
+                    @{
+                        if (ViewBag.Companies != null)
+                        {
+                            foreach (Company c in ViewBag.Companies)
+                            {
+                                if (c.RoomID == Model.ID)
+                                {
+                                                                    <div class="row">
+                                                                                    <div class="col"><a asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID">@c.Name</a></div>
+                                                                                             
+
+                                                                    </div>
+
+                                }
+                                else
+                                {
+                                                        <p class="alert-warning">This room doesnt have a company yet! Create one  <a asp-controller="Companies" asp-action="Create">Here</a></p>
+                                    break;
+                                }
+                            }
+                        }            
+                    }
                     </dd>
                 </dl>
             </div>
@@ -48,13 +69,13 @@
                 <div class="card-body">
                     @{
                         foreach(MapRoute r in ViewBag.Routes){
-                            <a asp-controller="MapRoute" asp-action="UserDetails" asp-route-id="@r.ID">
-                                <div class="row">
-                                    <div class="col-1">@r.ID</div>
-                                    <div class="col-9">@r.Description</div>
-                                </div>
-                            </a>
-                            <hr />
+                                <a asp-controller="MapRoutes" asp-action="UserDetails" asp-route-id="@r.ID">
+                                    <div class="row">
+                                        <div class="col-1">@r.ID</div>
+                                        <div class="col-9">@r.Description</div>
+                                    </div>
+                                </a>
+                                <hr />
                         }
                     }
                 </div>

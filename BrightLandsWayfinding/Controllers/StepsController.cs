@@ -30,6 +30,7 @@ namespace BrightLandsWayfinding.Controllers
         }
         public async Task<IActionResult> UserIndex()
         {
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             var appDbContext = _context.Step.Include(s => s.MapRoute);
@@ -57,6 +58,26 @@ namespace BrightLandsWayfinding.Controllers
 
             return View(step);
         }
+        public async Task<IActionResult> UserDetails(int? id)
+        {
+            if (id == null || _context.Step == null)
+            {
+                return NotFound();
+            }
+
+            var step = await _context.Step
+                .Include(s => s.MapRoute)
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (step == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
+            ViewBag.Companies = _context.Companies;
+            ViewBag.Users = _context.User;
+
+            return View(step);
+        }
 
         // GET: Steps/Create
         public IActionResult Create()
@@ -64,7 +85,7 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID");
+            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "Description");
             return View();
         }
 
@@ -84,7 +105,7 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID", step.MapRouteID);
+            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "Description", step.MapRouteID);
             return View(step);
         }
 
@@ -104,7 +125,7 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID", step.MapRouteID);
+            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "Description", step.MapRouteID);
             return View(step);
         }
 
@@ -143,7 +164,7 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID", step.MapRouteID);
+            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "Description", step.MapRouteID);
             return View(step);
         }
 
