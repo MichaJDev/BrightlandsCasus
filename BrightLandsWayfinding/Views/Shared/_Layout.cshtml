@@ -115,7 +115,7 @@
                     </div>
 
                     <!-- begin sidebar scrollbar -->
-                    <div class="" data-simplebar style="overflow:scroll; height: 100%;">
+                <div class="" data-simplebar style="overflow-y:scroll; height: 100%;">
                         <!-- sidebar menu -->
                         <ul class="nav sidebar-inner" id="sidebar-menu">
                             <li class="has-sub">
@@ -137,7 +137,7 @@
                                     @{
                                         foreach (Company c in ViewBag.Companies)
                                         {
-                                                                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="Details" asp-route-id="@c.ID" >@c.Name</a></span></li>
+                                                                                                    <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="Details" asp-route-id="@c.ID" >@c.Name</a></span></li>
 
                                         }
 
@@ -172,7 +172,7 @@
                                     @{
                                         foreach (User u in ViewBag.Users)
                                         {
-                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="Details" asp-route-id="@u.ID" >@u.Name @u.Surname</a></span></li>
+                                                    <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="Details" asp-route-id="@u.ID" >@u.Name @u.Surname</a></span></li>
 
                                         }
 
