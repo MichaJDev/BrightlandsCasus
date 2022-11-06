@@ -6,111 +6,134 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BrightLandsWayfinding.Data;
-using BrightLandsWayfinding.Models.Steps;
+using BrightLandsWayfinding.Models.MapRoutes;
 
 namespace BrightLandsWayfinding.Controllers
 {
-    public class StepsController : Controller
+    public class MapRoutesController : Controller
     {
         private readonly AppDbContext _context;
 
-        public StepsController(AppDbContext context)
+        public MapRoutesController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Steps
+        // GET: MapRoutes
         public async Task<IActionResult> Index()
         {
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            var appDbContext = _context.Step.Include(s => s.MapRoute);
+            var appDbContext = _context.Routes.Include(m => m.EndLocation).Include(m => m.StartLocation);
             return View(await appDbContext.ToListAsync());
         }
         public async Task<IActionResult> UserIndex()
         {
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            var appDbContext = _context.Step.Include(s => s.MapRoute);
+            var appDbContext = _context.Routes.Include(m => m.EndLocation).Include(m => m.StartLocation);
             return View(await appDbContext.ToListAsync());
         }
-
-        // GET: Steps/Details/5
+        // GET: MapRoutes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Step == null)
+            if (id == null || _context.Routes == null)
             {
                 return NotFound();
             }
 
-            var step = await _context.Step
-                .Include(s => s.MapRoute)
+            var mapRoute = await _context.Routes
+                .Include(m => m.EndLocation)
+                .Include(m => m.StartLocation)
+                .Include(m => m.Steps)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (step == null)
+            if (mapRoute == null)
             {
                 return NotFound();
             }
+            ViewBag.Steps = _context.Step.Where(m => m.MapRouteID == id);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-
-            return View(step);
+            return View(mapRoute);
         }
+        public async Task<IActionResult> UserDetails(int? id)
+        {
+            if (id == null || _context.Routes == null)
+            {
+                return NotFound();
+            }
 
-        // GET: Steps/Create
+            var mapRoute = await _context.Routes
+                .Include(m => m.EndLocation)
+                .Include(m => m.StartLocation)
+                .Include(m => m.Steps)
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (mapRoute == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Steps = _context.Step.Where(m => m.MapRouteID == id);
+            ViewBag.Companies = _context.Companies;
+            ViewBag.Users = _context.User;
+            return View(mapRoute);
+        }
+        // GET: MapRoutes/Create
         public IActionResult Create()
         {
-            ViewBag.Companies = _context.Companies;
-            ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID");
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "Name");
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "Name");
+           
             return View();
         }
 
-        // POST: Steps/Create
+        // POST: MapRoutes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Description,MapRouteID")] Step step)
+        public async Task<IActionResult> Create([Bind("ID,Description,StartLocationID,EndLocationID")] MapRoute mapRoute)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(step);
+                _context.Add(mapRoute);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID", step.MapRouteID);
-            return View(step);
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.StartLocationID);
+            return View(mapRoute);
         }
 
-        // GET: Steps/Edit/5
+        // GET: MapRoutes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Step == null)
+            if (id == null || _context.Routes == null)
             {
                 return NotFound();
             }
 
-            var step = await _context.Step.FindAsync(id);
-            if (step == null)
+            var mapRoute = await _context.Routes.FindAsync(id);
+            if (mapRoute == null)
             {
                 return NotFound();
             }
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID", step.MapRouteID);
-            return View(step);
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.StartLocationID);
+            return View(mapRoute);
         }
 
-        // POST: Steps/Edit/5
+        // POST: MapRoutes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,MapRouteID")] Step step)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Description,StartLocationID,EndLocationID")] MapRoute mapRoute)
         {
-            if (id != step.ID)
+            if (id != mapRoute.ID)
             {
                 return NotFound();
             }
@@ -119,12 +142,12 @@ namespace BrightLandsWayfinding.Controllers
             {
                 try
                 {
-                    _context.Update(step);
+                    _context.Update(mapRoute);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StepExists(step.ID))
+                    if (!MapRouteExists(mapRoute.ID))
                     {
                         return NotFound();
                     }
@@ -137,43 +160,45 @@ namespace BrightLandsWayfinding.Controllers
             }
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["MapRouteID"] = new SelectList(_context.Routes, "ID", "ID", step.MapRouteID);
-            return View(step);
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.StartLocationID);
+            return View(mapRoute);
         }
 
-        // GET: Steps/Delete/5
+        // GET: MapRoutes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Step == null)
+            if (id == null || _context.Routes == null)
             {
                 return NotFound();
             }
 
-            var step = await _context.Step
-                .Include(s => s.MapRoute)
+            var mapRoute = await _context.Routes
+                .Include(m => m.EndLocation)
+                .Include(m => m.StartLocation)
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (step == null)
+            if (mapRoute == null)
             {
                 return NotFound();
             }
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            return View(step);
+            return View(mapRoute);
         }
 
-        // POST: Steps/Delete/5
+        // POST: MapRoutes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Step == null)
+            if (_context.Routes == null)
             {
-                return Problem("Entity set 'AppDbContext.Step'  is null.");
+                return Problem("Entity set 'AppDbContext.Routes'  is null.");
             }
-            var step = await _context.Step.FindAsync(id);
-            if (step != null)
+            var mapRoute = await _context.Routes.FindAsync(id);
+            if (mapRoute != null)
             {
-                _context.Step.Remove(step);
+                _context.Routes.Remove(mapRoute);
             }
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
@@ -181,9 +206,9 @@ namespace BrightLandsWayfinding.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StepExists(int id)
+        private bool MapRouteExists(int id)
         {
-          return _context.Step.Any(e => e.ID == id);
+          return _context.Routes.Any(e => e.ID == id);
         }
     }
 }

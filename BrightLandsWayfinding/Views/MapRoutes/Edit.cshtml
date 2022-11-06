@@ -1,4 +1,4 @@
-﻿@model BrightLandsWayfinding.Models.Steps.Step
+﻿@model BrightLandsWayfinding.Models.MapRoutes.MapRoute
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,7 +7,7 @@
 
 <h1>Edit</h1>
 
-<h4>Step</h4>
+<h4>MapRoute</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,9 +20,14 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MapRouteID" class="control-label"></label>
-                <select asp-for="MapRouteID" class="form-control" asp-items="ViewBag.MapRouteID"></select>
-                <span asp-validation-for="MapRouteID" class="text-danger"></span>
+                <label asp-for="StartLocationID" class="control-label"></label>
+                <select asp-for="StartLocationID" class="form-control" asp-items="ViewBag.StartLocationID"></select>
+                <span asp-validation-for="StartLocationID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndLocationID" class="control-label"></label>
+                <select asp-for="EndLocationID" class="form-control" asp-items="ViewBag.EndLocationID"></select>
+                <span asp-validation-for="EndLocationID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

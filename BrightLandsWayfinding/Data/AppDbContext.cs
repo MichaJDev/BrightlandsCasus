@@ -6,6 +6,7 @@ using BrightLandsWayfinding.Models.Steps;
 using BrightLandsWayfinding.Models.Rooms;
 using BrightLandsWayfinding.Models.Events;
 using BrightLandsWayfinding.Models.Buildings;
+using BrightLandsWayfinding.Models.MapRoutes;
 
 namespace BrightLandsWayfinding.Data
 {
@@ -22,7 +23,8 @@ namespace BrightLandsWayfinding.Data
         public DbSet<Story> Stories { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Step> Step { get; set; }
-        public DbSet<BrightLandsWayfinding.Models.Events.Event> Event { get; set; }
+        public DbSet<Event> Event { get; set; }
+        public DbSet<MapRoute> Routes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Building>()
@@ -34,9 +36,12 @@ namespace BrightLandsWayfinding.Data
             modelBuilder.Entity<Company>()
                 .HasMany(c => c.Employees)
                 .WithOne(e => e.Company);
+            modelBuilder.Entity<MapRoute>()
+                .HasMany(mr => mr.Steps)
+                .WithOne(s => s.MapRoute);
         }
 
-      
+
 
 
     }

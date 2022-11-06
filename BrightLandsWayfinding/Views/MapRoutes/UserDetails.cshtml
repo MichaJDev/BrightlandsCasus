@@ -1,0 +1,58 @@
+﻿@using BrightLandsWayfinding.Models.Steps
+@model BrightLandsWayfinding.Models.MapRoutes.MapRoute
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MapRoute</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartLocation.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndLocation.Name)
+        </dd>
+    </dl>
+</div>
+<div class="card">
+    <h3 class="card-header">Stories</h3>
+    <div  class="card-body">
+        <br />
+        <br />
+        @{
+            if (ViewBag.Steps != null)
+            {
+                foreach (Step s in Model.Steps)
+                {
+                    <div class="row">   
+                                    <div class="col-1">@s.ID</div>
+                                    <div class="col-9">
+                                        <a asp-controller="Stories" asp-action="Details" asp-route-id="@s.ID">@s.Description</a> 
+                                    </div>
+                    </div> 
+                }
+            }
+        }  
+    </div>  
+</div>
+<div>
+    <a asp-action="UserIndex">Back to List</a>
+</div>

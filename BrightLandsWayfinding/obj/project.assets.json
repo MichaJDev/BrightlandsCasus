@@ -9851,23 +9851,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ramon\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\xflak\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ramon\\Source\\Repos\\MichaJDev\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
+      "projectUniqueName": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
       "projectName": "BrightLandsWayfinding",
-      "projectPath": "C:\\Users\\Ramon\\Source\\Repos\\MichaJDev\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
-      "packagesPath": "C:\\Users\\Ramon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ramon\\Source\\Repos\\MichaJDev\\BrightlandsCasus\\BrightLandsWayfinding\\obj\\",
+      "projectPath": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\BrightLandsWayfinding.csproj",
+      "packagesPath": "C:\\Users\\xflak\\.nuget\\packages\\",
+      "outputPath": "G:\\Developement\\C#\\BrightlandsCasus\\BrightLandsWayfinding\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ramon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\xflak\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

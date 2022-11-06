@@ -1,5 +1,4 @@
-﻿@using BrightLandsWayfinding.Models.Companies
-@model BrightLandsWayfinding.Models.Steps.Step
+﻿@model BrightLandsWayfinding.Models.Steps.Step
 
 @{
     ViewData["Title"] = "Details";
@@ -19,10 +18,10 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Room)
+            @Html.DisplayNameFor(model => model.MapRoute)
         </dt>
         <dd class = "col-sm-10">
-             <a asp-controller="Rooms" asp-action="Details" asp-route-id="@Model.RoomID">@Html.DisplayFor(model => model.Room.Name)</a>
+            @Html.DisplayFor(model => model.MapRoute.ID)
         </dd>
     </dl>
 </div>

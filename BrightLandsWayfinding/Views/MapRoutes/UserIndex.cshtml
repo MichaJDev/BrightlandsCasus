@@ -1,15 +1,11 @@
-﻿@model IEnumerable<BrightLandsWayfinding.Models.Steps.Step>
+﻿@model IEnumerable<BrightLandsWayfinding.Models.MapRoutes.MapRoute>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1>Routes</h1>
 <table class="table">
     <thead>
         <tr>
@@ -17,7 +13,10 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MapRoute)
+                @Html.DisplayNameFor(model => model.StartLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndLocation)
             </th>
             <th></th>
         </tr>
@@ -29,12 +28,14 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MapRoute.ID)
+                @Html.DisplayFor(modelItem => item.StartLocation.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                @Html.DisplayFor(modelItem => item.EndLocation.Name)
+            </td>
+            <td>
+
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
             </td>
         </tr>
 }
