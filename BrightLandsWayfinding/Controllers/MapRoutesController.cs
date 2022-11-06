@@ -108,8 +108,8 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
-            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.StartLocationID);
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "Name", mapRoute.EndLocationID);
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "Name", mapRoute.StartLocationID);
             return View(mapRoute);
         }
 
@@ -129,8 +129,8 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
-            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.StartLocationID);
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "NAme", mapRoute.EndLocationID);
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "Name", mapRoute.StartLocationID);
             return View(mapRoute);
         }
 
@@ -169,8 +169,8 @@ namespace BrightLandsWayfinding.Controllers
             ViewBag.Events = _context.Event.Where(m => m.EndTime >= DateTime.Now);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
-            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
-            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.StartLocationID);
+            ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "NAme", mapRoute.EndLocationID);
+            ViewData["StartLocationID"] = new SelectList(_context.Rooms, "ID", "Name", mapRoute.StartLocationID);
             return View(mapRoute);
         }
 
