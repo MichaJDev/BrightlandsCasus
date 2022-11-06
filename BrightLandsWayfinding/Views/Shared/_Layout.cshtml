@@ -137,7 +137,7 @@
                                         @{
                                             foreach (Company c in ViewBag.Companies)
                                             {
-                                                <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID" >@c.Name</a></span></li>
+                                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Companies" asp-action="UserDetails" asp-route-id="@c.ID" >@c.Name</a></span></li>
                                             }
                                         }                                    
                                     </div>
@@ -155,7 +155,7 @@
                                     @{
                                         foreach (User u in ViewBag.Users)
                                         {
-                                                    <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="UserDetails" asp-route-id="@u.ID" >@u.Name @u.Surname</a></span></li>
+                                                                <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Users" asp-action="UserDetails" asp-route-id="@u.ID" >@u.Name @u.Surname</a></span></li>
 
                                         }
 
@@ -189,7 +189,7 @@
                                     @{
                                         foreach (Event e in ViewBag.Events)
                                         {
-                                            <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Events" asp-action="UserDetails" asp-route-id="@e.ID">@e.Name</a></span></li>
+                                                        <li class="nav-link-style"><span class="nav-text"><a style="color: #A29A99; text-decoration: none; background-color: font-size: 16px;transparent; margin: 10px 0 10px 0;" asp-controller="Events" asp-action="UserDetails" asp-route-id="@e.ID">@e.Name</a></span></li>
                                         }
                                     }
                     </div>
@@ -754,9 +754,9 @@
                 </div> <!-- End Content -->
             </div> <!-- End Content Wrapper -->
             <!-- Footer -->
-            <footer class="footer mt-auto">
+            @*<footer class="footer mt-auto">
                 <div class="copyright bg-white">
-                    <p style="font-size:8px;">
+                    <p style="font-size:8px; height:12px; width:1000px;">
                         Copyright &copy; <span id="copy-year"></span> a template by <a class="text-primary" href="https://themefisher.com" target="_blank">Themefisher</a> & was edited by Casus group 14 @Html.Raw("@")ZuydHogeschool. <a href="~/assets/LICENSE">READ LICENSE</a>
                     </p>
                 </div>
@@ -765,7 +765,7 @@
                     var year = d.getFullYear();
                     document.getElementById("copy-year").innerHTML = year;
                 </script>
-            </footer>
+            </footer>*@
 
     </div> <!-- End Page Wrapper -->
     </div> <!-- End Wrapper -->
