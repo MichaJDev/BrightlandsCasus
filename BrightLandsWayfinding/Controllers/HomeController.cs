@@ -17,6 +17,7 @@ namespace BrightLandsWayfinding.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Buildings = _context.Buildings;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
@@ -25,6 +26,7 @@ namespace BrightLandsWayfinding.Controllers
 
         public IActionResult UserIndex()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Buildings = _context.Buildings;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
@@ -33,6 +35,7 @@ namespace BrightLandsWayfinding.Controllers
 
         public IActionResult Privacy()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View();
@@ -41,6 +44,7 @@ namespace BrightLandsWayfinding.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -22,6 +22,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Buildings
         public async Task<IActionResult> Index()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             return View(await _context.Buildings.Include(m => m.Stories).ToListAsync());
@@ -29,6 +30,7 @@ namespace BrightLandsWayfinding.Controllers
 
         public async Task<IActionResult> UserIndex()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             return View(await _context.Buildings.Include(m => m.Stories).ToListAsync());
@@ -48,6 +50,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(building);
@@ -65,6 +68,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(building);
@@ -73,6 +77,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Buildings/Create
         public IActionResult Create()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View();
@@ -91,6 +96,7 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(building);
@@ -110,6 +116,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(building);
@@ -147,6 +154,7 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(building);
@@ -166,6 +174,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(building);
@@ -185,6 +194,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Buildings.Remove(building);
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();

@@ -22,6 +22,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: MapRoutes
         public async Task<IActionResult> Index()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             var appDbContext = _context.Routes.Include(m => m.EndLocation).Include(m => m.StartLocation);
@@ -29,6 +30,7 @@ namespace BrightLandsWayfinding.Controllers
         }
         public async Task<IActionResult> UserIndex()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             var appDbContext = _context.Routes.Include(m => m.EndLocation).Include(m => m.StartLocation);
@@ -51,6 +53,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Steps = _context.Step.Where(m => m.MapRouteID == id);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
@@ -72,6 +75,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Steps = _context.Step.Where(m => m.MapRouteID == id);
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
@@ -99,6 +103,7 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
@@ -119,6 +124,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
@@ -158,6 +164,7 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             ViewData["EndLocationID"] = new SelectList(_context.Rooms, "ID", "ID", mapRoute.EndLocationID);
@@ -181,6 +188,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             return View(mapRoute);
@@ -200,6 +208,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Routes.Remove(mapRoute);
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Companies = _context.Companies;
             ViewBag.Users = _context.User;
             await _context.SaveChangesAsync();

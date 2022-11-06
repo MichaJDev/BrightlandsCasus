@@ -22,6 +22,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             var appDbContext = _context.Event.Include(m => m.Room);
@@ -29,6 +30,7 @@ namespace BrightLandsWayfinding.Controllers
         }
         public async Task<IActionResult> UserIndex()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             var appDbContext = _context.Event.Include(m => m.Room);
@@ -50,6 +52,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(@event);
@@ -68,6 +71,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(@event);
@@ -76,6 +80,7 @@ namespace BrightLandsWayfinding.Controllers
         // GET: Events/Create
         public IActionResult Create()
         {
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name");
@@ -95,6 +100,7 @@ namespace BrightLandsWayfinding.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", @event.RoomID);
@@ -114,6 +120,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", @event.RoomID);
@@ -152,6 +159,7 @@ namespace BrightLandsWayfinding.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", @event.RoomID);
@@ -173,6 +181,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 return NotFound();
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             return View(@event);
@@ -192,6 +201,7 @@ namespace BrightLandsWayfinding.Controllers
             {
                 _context.Event.Remove(@event);
             }
+            ViewBag.Events = _context.Event;
             ViewBag.Users = _context.User;
             ViewBag.Companies = _context.Companies;
             await _context.SaveChangesAsync();
